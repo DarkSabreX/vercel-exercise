@@ -62,6 +62,13 @@ export default function Nav() {
     },
   ];
 
-  const home = { icon: "pi pi-home", url: "/" };
+  const home = {
+    icon: "pi pi-home",
+    template: () => (
+      <Link href="/">
+        <span className="pi pi-home"></span>
+      </Link>
+    ),
+  };
   return <BreadCrumb model={items} home={home} />;
 }

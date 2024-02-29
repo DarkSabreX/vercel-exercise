@@ -1,95 +1,48 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Card } from "primereact/card";
+import Link from "next/link";
 
 export default function Home() {
+  const links = [
+    { title: "Question 1", href: "/question/1" },
+    { title: "Question 2", href: "/question/2" },
+    { title: "Question 3", href: "/question/3" },
+    { title: "Question 4", href: "/question/4" },
+    { title: "Question 5", href: "/question/5" },
+    { title: "Question 6", href: "/question/6" },
+    { title: "Question 7", href: "/question/7" },
+  ];
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="grid">
+      <div className="col-12">
+        <div className=" border-bottom-1">
+          <p className="text-6xl pl-4 ">Remy Z Romano</p>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="col-12 flex w-full">
+        <p className="text-5xl w-10 pl-4">
+          Senior Customer Success Engineer Exercise
+        </p>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="col-12 grid pt-8 pl-4">
+        {links.map((link, id) => (
+          <div
+            key={id}
+            className={
+              id >= 4
+                ? "col-4 flex justify-content-center"
+                : "col-3 flex justify-content-center"
+            }
+          >
+            <Link href={link.href}>
+              <Card
+                className="p-5"
+                style={{ background: "var(--surface-200)" }}
+                title={link.title}
+              />
+            </Link>
+          </div>
+        ))}
       </div>
-    </main>
+    </div>
   );
 }
