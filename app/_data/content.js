@@ -323,7 +323,7 @@ const content = [
       <p>
         I really enjoyed this exercise. I wouldn’t change a thing. It seems like
         a good test of technical understanding while simultaneously gaining
-        additional info about a person's skills.
+        additional info about a person’s skills.
       </p>
     ),
   },
