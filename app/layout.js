@@ -1,7 +1,11 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
+import "primereact/resources/themes/lara-dark-teal/theme.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
+import { Card } from "primereact/card";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <Providers>
+          <Card className="m-6 ">{children}</Card>
+        </Providers>
+      </body>
     </html>
   );
 }
